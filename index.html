@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaichl-Backstube · Irene Wenning · Erbendorf</title>
+<meta name="description" content="Traditionelle bayrische Kaichl, Krapfen und Küchle aus der Kaichl-Backstube von Irene Wenning in Erbendorf, Oberpfalz. Frisch, handgebacken, zur Abholung oder Vorbestellung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#152016;
+    --green-800:#233620;
+    --green-700:#3a5233;
+    --green-600:#4d6b44;
+    --cream-100:#fbf6e8;
+    --cream-200:#f2e6c3;
+    --cream-300:#e9d9a6;
+    --gold-500:#c99a3e;
+    --gold-600:#a97e2e;
+    --ink:#20261b;
+    --cream-text:#f5efdc;
+    --shadow: 0 18px 40px -18px rgba(21,32,22,0.45);
+    --radius-plaque: 4px 18px 4px 18px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream-100);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-size:.78rem;
+  }
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  section{position:relative;}
+
+  /* ---------- signature plaque shape (echoes the hand-forged shop signs) ---------- */
+  .plaque{
+    position:relative;
+    border-radius:var(--radius-plaque);
+    box-shadow:var(--shadow);
+  }
+  .plaque::before{
+    content:"";
+    position:absolute;
+    top:-13px; left:50%;
+    transform:translateX(-50%);
+    width:46px; height:16px;
+    border:3px solid currentColor;
+    border-bottom:none;
+    border-radius:14px 14px 0 0;
+    opacity:.55;
+  }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,32,22,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(245,239,220,.12);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .nav-brand{
+    color:var(--cream-text);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .nav-brand svg{width:26px;height:26px;flex:none;}
+  .nav-links{
+    display:flex; gap:30px;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    color:var(--cream-200);
+    text-decoration:none;
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    border-bottom:1px solid transparent;
+    padding-bottom:3px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .nav-links a:hover{ color:var(--gold-500); border-color:var(--gold-500); }
+  .nav-phone{
+    color:var(--cream-100);
+    background:var(--gold-500);
+    padding:8px 16px;
+    border-radius:3px 12px 3px 12px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:.85rem;
+    white-space:nowrap;
+  }
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:linear-gradient(180deg, rgba(21,32,22,.55) 0%, rgba(21,32,22,.86) 62%, var(--green-800) 100%), url('images/hero-textur.jpg');
+    background-size:cover;
+    background-position:center;
+    color:var(--cream-text);
+    padding:96px 0 120px;
+  }
+  .hero-eyebrow{color:var(--cream-300); margin-bottom:18px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 5.1rem);
+    line-height:.98;
+    color:var(--cream-100);
+    letter-spacing:-.01em;
+  }
+  .hero-sub{
+    margin-top:22px;
+    max-width:520px;
+    color:var(--cream-200);
+    font-size:1.05rem;
+  }
+  .hero-sub strong{color:var(--cream-100);}
+  .hero-cta{
+    margin-top:38px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:22px;
+  }
+  .phone-plaque{
+    background:var(--cream-100);
+    color:var(--green-900);
+    padding:16px 26px 14px;
+    text-align:center;
+  }
+  .phone-plaque .eyebrow{color:var(--green-700); margin-bottom:4px;}
+  .phone-plaque a{
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--green-900);
+  }
+  .hero-note{
+    font-family:'Caveat', cursive;
+    font-size:1.5rem;
+    color:var(--gold-500);
+    transform:rotate(-3deg);
+  }
+
+  /* ---------- intro strip ---------- */
+  .intro{
+    background:var(--cream-100);
+    padding:76px 0 20px;
+  }
+  .intro .wrap{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:60px;
+    align-items:start;
+  }
+  .intro h2{
+    font-size:clamp(1.8rem,3vw,2.4rem);
+    color:var(--green-800);
+    line-height:1.15;
+  }
+  .intro p{
+    color:#4a4433;
+    font-size:1.05rem;
+  }
+  .divider{
+    width:64px; height:3px; background:var(--gold-500);
+    border:none; margin:22px 0;
+  }
+
+  /* ---------- products ---------- */
+  .products{
+    background:var(--cream-100);
+    padding:60px 0 110px;
+  }
+  .products-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 56px;
+  }
+  .products-head .eyebrow{color:var(--gold-600); display:block; margin-bottom:12px;}
+  .products-head h2{
+    font-size:clamp(2rem, 4vw, 2.7rem);
+    color:var(--green-800);
+  }
+  .products-head p{
+    margin-top:14px;
+    color:#4a4433;
+  }
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:34px;
+  }
+  .product-card{
+    background:var(--cream-100);
+    border:1px solid var(--cream-300);
+    border-radius:6px 26px 6px 26px;
+    padding:30px 26px 32px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .product-card:hover{ transform:translateY(-6px); }
+  .product-photo{
+    width:168px; height:168px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid var(--cream-100);
+    outline:3px solid var(--gold-500);
+    box-shadow:0 12px 26px -12px rgba(21,32,22,.5);
+  }
+  .product-photo img{width:100%;height:100%;object-fit:cover;}
+  .product-card h3{
+    font-size:1.3rem;
+    color:var(--green-900);
+  }
+  .price-tag{
+    display:inline-block;
+    margin:10px 0 14px;
+    background:var(--green-800);
+    color:var(--cream-100);
+    font-weight:700;
+    font-size:.92rem;
+    padding:5px 14px;
+    border-radius:3px 10px 3px 10px;
+  }
+  .product-card p{
+    color:#55503f;
+    font-size:.97rem;
+    margin:0;
+  }
+
+  /* ---------- straßenaufsteller ---------- */
+  .street{
+    background:var(--green-800);
+    color:var(--cream-text);
+    padding:100px 0;
+    overflow:hidden;
+  }
+  .street .wrap{
+    display:grid;
+    grid-template-columns:1.1fr .8fr;
+    gap:70px;
+    align-items:center;
+  }
+  .street .eyebrow{color:var(--cream-300);}
+  .street h2{
+    font-size:clamp(2rem,3.6vw,2.6rem);
+    color:var(--cream-100);
+    margin:14px 0 20px;
+  }
+  .street p{ color:var(--cream-200); }
+  .street p + p{ margin-top:16px; }
+  .street .call-out{
+    margin-top:30px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn-gold{
+    display:inline-block;
+    background:var(--gold-500);
+    color:var(--green-900);
+    text-decoration:none;
+    font-weight:700;
+    padding:13px 26px;
+    border-radius:3px 14px 3px 14px;
+    transition:background .2s ease;
+  }
+  .btn-gold:hover{ background:var(--cream-100); }
+  .street-photo{
+    position:relative;
+    justify-self:center;
+  }
+  .street-photo img{
+    width:280px;
+    border-radius:6px 30px 6px 30px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
+    border:6px solid var(--green-900);
+  }
+
+  /* ---------- recognize us ---------- */
+  .signs{
+    background:var(--cream-100);
+    padding:100px 0;
+  }
+  .signs-head{ text-align:center; max-width:640px; margin:0 auto 50px; }
+  .signs-head .eyebrow{ color:var(--gold-600); display:block; margin-bottom:12px; }
+  .signs-head h2{ font-size:clamp(2rem,4vw,2.7rem); color:var(--green-800); }
+  .signs-head p{ margin-top:14px; color:#4a4433; }
+  .signs-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:26px;
+  }
+  .sign-card{
+    background:var(--green-800);
+    border-radius:6px 22px 6px 22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .sign-card img{
+    width:100%; aspect-ratio:4/5; object-fit:cover;
+    display:block;
+  }
+  .sign-card span{
+    display:block;
+    text-align:center;
+    color:var(--cream-200);
+    font-family:'Caveat', cursive;
+    font-size:1.3rem;
+    padding:10px 8px 14px;
+  }
+
+  /* ---------- anfahrt ---------- */
+  .anfahrt{
+    background:var(--cream-200);
+    padding:100px 0;
+  }
+  .anfahrt .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .anfahrt .eyebrow{ color:var(--gold-600); }
+  .anfahrt h2{
+    font-size:clamp(2rem,4vw,2.6rem);
+    color:var(--green-800);
+    margin:14px 0 20px;
+  }
+  .anfahrt p{ color:#4a4433; }
+  .info-list{
+    list-style:none; margin:26px 0 0; padding:0;
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .info-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    font-size:1rem; color:var(--ink);
+  }
+  .info-list svg{flex:none; width:22px; height:22px; color:var(--gold-600); margin-top:2px;}
+  .info-list a{ text-decoration:none; font-weight:700; color:var(--green-800); }
+  .anfahrt-card{
+    background:var(--green-900);
+    color:var(--cream-text);
+    border-radius:6px 30px 6px 30px;
+    padding:44px 40px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .anfahrt-card svg{ width:56px; height:56px; color:var(--gold-500); margin-bottom:18px;}
+  .anfahrt-card h3{ font-size:1.5rem; color:var(--cream-100); margin-bottom:8px; }
+  .anfahrt-card p{ color:var(--cream-200); margin-bottom:26px; }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--green-900);
+    color:var(--cream-300);
+    padding:56px 0 30px;
+  }
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:24px;
+    padding-bottom:32px;
+    border-bottom:1px solid rgba(245,239,220,.14);
+  }
+  .footer-brand{
+    font-family:'Fraunces', serif; font-size:1.3rem; color:var(--cream-100);
+    display:flex; align-items:center; gap:10px;
+  }
+  .footer-brand svg{width:24px;height:24px;}
+  .footer-links{ display:flex; gap:24px; list-style:none; margin:0; padding:0; }
+  .footer-links a{ text-decoration:none; color:var(--cream-300); font-size:.9rem; }
+  .footer-links a:hover{ color:var(--gold-500); }
+  .footer-bottom{
+    padding-top:22px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:.82rem; color:rgba(242,230,195,.55);
+  }
+
+  /* decorative ring motif */
+  .ring-deco{
+    position:absolute; opacity:.08; pointer-events:none;
+  }
+
+  @media (max-width: 880px){
+    .nav-links{ display:none; }
+    .intro .wrap, .street .wrap, .anfahrt .wrap{ grid-template-columns:1fr; }
+    .street-photo{ order:-1; }
+    .street-photo img{ width:220px; margin:0 auto; }
+    .product-grid{ grid-template-columns:1fr; max-width:360px; margin:0 auto; }
+    .signs-grid{ grid-template-columns:repeat(2, 1fr); }
+    .wrap{ padding:0 22px; }
+    .hero{ padding:70px 0 90px; }
+    .footer-top{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav-brand" href="#top">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.2"/><circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="2.2"/></svg>
+      Kaichl-Backstube
+    </a>
+    <ul class="nav-links">
+      <li><a href="#top">Start</a></li>
+      <li><a href="#angebot">Angebot</a></li>
+      <li><a href="#strassenaufsteller">Straßenaufsteller</a></li>
+      <li><a href="#anfahrt">Anfahrt</a></li>
+    </ul>
+    <a class="nav-phone" href="tel:+4996822069">09682 / 2069</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow hero-eyebrow">Irene Wenning</p>
+    <h1>Kaichl-<br>Backstube</h1>
+    <p class="hero-sub">In <strong>92681 Erbendorf</strong> (Oberpfalz) werden Kaichl, Krapfen und Küchle noch von Hand ausgezogen und frisch gebacken &ndash; nach altem bayrischem Rezept.</p>
+    <div class="hero-cta">
+      <div class="phone-plaque plaque">
+        <p class="eyebrow">Zur Bestellung anrufen</p>
+        <a href="tel:+4996822069">09682 / 2069</a>
+      </div>
+      <span class="hero-note">frisch &amp; handgebacken</span>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h2>Ein Stück Oberpfalz,<br>frisch aus dem Fett.</h2>
+    <div>
+      <hr class="divider">
+      <p>Die Kaichl-Backstube ist ein kleiner, familiärer Betrieb in Erbendorf. Hier entsteht, was in der Oberpfalz seit Generationen zur Brotzeit und zum Kaffee gehört: die Kaichl &ndash; anderswo auch Küchle, Schmalznudel oder Ausgezogene genannt. Jedes Stück wird von Hand ausgezogen, in der Pfanne ausgebacken und mit Puderzucker vollendet. Kein Onlineshop, kein Versand &ndash; einfach ehrliches Gebäck zum Abholen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="angebot">
+  <div class="wrap">
+    <div class="products-head">
+      <span class="eyebrow">Schmalzgebäck</span>
+      <h2>Zur Auswahl</h2>
+      <p>Traditionelles bayrisches Gebäck, frisch &amp; handgebacken.</p>
+    </div>
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="product-photo"><img src="images/kaichl.jpg" alt="Frisch gebackener Kaichl mit Puderzucker"></div>
+        <h3>Kaichl</h3>
+        <span class="price-tag">1,20 € / Stück</span>
+        <p>Auch bekannt als Küchle, Schmalznudel oder Ausgezogene.</p>
+      </article>
+      <article class="product-card">
+        <div class="product-photo"><img src="images/krapfen.jpg" alt="Krapfen mit Puderzucker, gefüllt mit Marmelade"></div>
+        <h3>Krapfen</h3>
+        <span class="price-tag">1,50 € / Stück</span>
+        <p>Auch bekannt als Berliner oder Pfannkuchen &ndash; gefüllt mit selbstgemachter Marmelade.</p>
+      </article>
+      <article class="product-card">
+        <div class="product-photo"><img src="images/party-kaichl.jpg" alt="Party Kaichl, in der Hand gehalten"></div>
+        <h3>Party Kaichl</h3>
+        <span class="price-tag">0,90 € / Stück</span>
+        <p>Die kleine Version des Kaichl &ndash; perfekt als Snack auf Feiern.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="street" id="strassenaufsteller">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Straßenaufsteller</span>
+      <h2>Kaichl abholen ohne Vorbestellung?</h2>
+      <p>Wenn der Aufsteller an der Straße steht, gibt es noch frische Küchle &ndash; Restbestände, die du spontan mitnehmen kannst. Perfekt für Kaffee und Kuchen: wahlweise ohne Puderzucker oder direkt zum Naschen mit der süßen Puderzuckerschicht.</p>
+      <p>Möchtest du auf Nummer sicher gehen und dich nicht auf den Zufall verlassen? Dann bestell deine Kaichla einfach vor.</p>
+      <div class="call-out">
+        <a class="btn-gold" href="tel:+4996822069">Jetzt vorbestellen &middot; 09682 / 2069</a>
+      </div>
+    </div>
+    <div class="street-photo">
+      <img src="images/strassenaufsteller.jpg" alt="Tafel mit der Aufschrift 'Heute frische Kaichla', Kastanienweg 7">
+    </div>
+  </div>
+</section>
+
+<section class="signs">
+  <div class="wrap">
+    <div class="signs-head">
+      <span class="eyebrow">Wegweiser</span>
+      <h2>So erkennst du uns</h2>
+      <p>Ob du richtig bist, siehst du ganz leicht &ndash; halt einfach Ausschau nach diesen Schildern.</p>
+    </div>
+    <div class="signs-grid">
+      <div class="sign-card"><img src="images/sign-stein.jpg" alt="Schild 'Kaichl-Backstube' auf einem Findling"></div>
+      <div class="sign-card"><img src="images/sign-pfeil.jpg" alt="Aufsteller 'Heute frische Kaichla' mit Wegweiser-Pfeil"></div>
+      <div class="sign-card"><img src="images/sign-fliesen.jpg" alt="Gemaltes Fliesenbild mit Kaichl-Motiv"></div>
+      <div class="sign-card"><img src="images/sign-oval.jpg" alt="Ovales Holzschild 'Kaichl-Backstube'"></div>
+    </div>
+  </div>
+</section>
+
+<section class="anfahrt" id="anfahrt">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Anfahrt</span>
+      <h2>Kastanienweg 7, Erbendorf</h2>
+      <p>Die Kaichla-Abholung befindet sich in 92681 Erbendorf, Oberpfalz. Für frische Kaichl ohne Vorbestellung einfach nach dem Straßenaufsteller Ausschau halten.</p>
+      <ul class="info-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+          <span>Kastanienweg 7, 92681 Erbendorf (Oberpfalz)</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0-.6.4-1 1-1h3.2c.5 0 .9.3 1 .8l1 3.6c.1.4 0 .9-.4 1.2L7.6 11c1.1 2.4 3 4.3 5.4 5.4l1.4-2.2c.3-.4.8-.5 1.2-.4l3.6 1c.5.1.8.5.8 1V19c0 .6-.4 1-1 1h-1C9.9 20 4 14.1 4 6.5V5Z"/></svg>
+          <span>Vorbestellung telefonisch unter <a href="tel:+4996822069">09682 / 2069</a></span>
+        </li>
+      </ul>
+    </div>
+    <div class="anfahrt-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 20l-6-2V6l6-2m0 16l6 2m-6-2V4m6 18l6-2V4l-6-2m0 18V2M3 6l6-2m6 2l6-2"/></svg>
+      <h3>Route planen</h3>
+      <p>Am schnellsten findest du uns direkt über Google Maps.</p>
+      <a class="btn-gold" href="https://www.google.com/maps/search/?api=1&query=Kastanienweg%207%2C%2092681%20Erbendorf" target="_blank" rel="noopener">Zu Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.2"/><circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="2.2"/></svg>
+        Kaichl-Backstube
+      </div>
+      <ul class="footer-links">
+        <li><a href="#top">Start</a></li>
+        <li><a href="#angebot">Angebot</a></li>
+        <li><a href="#strassenaufsteller">Straßenaufsteller</a></li>
+        <li><a href="#anfahrt">Anfahrt</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>Irene Wenning &middot; Kastanienweg 7 &middot; 92681 Erbendorf &middot; 09682 / 2069</span>
+      <span>&copy; <span id="year"></span> Kaichl-Backstube</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
