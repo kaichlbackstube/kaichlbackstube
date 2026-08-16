@@ -126,15 +126,16 @@
 
   /* ---------- hero ---------- */
   .hero{
-    background:linear-gradient(180deg, rgba(21,32,22,.55) 0%, rgba(21,32,22,.86) 62%, var(--green-800) 100%), url('images/hero-textur.jpg');
-    background-size:cover;
-    background-position:center;
+    background:
+      radial-gradient(ellipse 800px 500px at 78% 25%, rgba(201,154,62,.14) 0%, rgba(201,154,62,0) 60%),
+      var(--green-800);
     color:var(--cream-text);
-    padding:96px 0 120px;
+    padding:96px 0 110px;
+    overflow:hidden;
   }
   .hero-eyebrow{color:var(--cream-300); margin-bottom:18px;}
   .hero h1{
-    font-size:clamp(2.6rem, 6.4vw, 5.1rem);
+    font-size:clamp(2.6rem, 6.2vw, 5rem);
     line-height:.98;
     color:var(--cream-100);
     letter-spacing:-.01em;
@@ -153,6 +154,7 @@
     align-items:center;
     gap:22px;
   }
+
   .phone-plaque{
     background:var(--cream-100);
     color:var(--green-900);
@@ -234,15 +236,28 @@
   }
   .product-card:hover{ transform:translateY(-6px); }
   .product-photo{
-    width:168px; height:168px;
-    margin:0 auto 22px;
-    border-radius:50%;
-    overflow:hidden;
-    border:4px solid var(--cream-100);
-    outline:3px solid var(--gold-500);
-    box-shadow:0 12px 26px -12px rgba(21,32,22,.5);
+    position:relative;
+    height:172px;
+    margin:0 auto 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
-  .product-photo img{width:100%;height:100%;object-fit:cover;}
+  .product-photo::before{
+    content:"";
+    position:absolute;
+    bottom:2px;
+    width:120px; height:16px;
+    background:radial-gradient(ellipse, rgba(58,82,51,.22) 0%, rgba(58,82,51,0) 72%);
+  }
+  .product-photo img{
+    position:relative;
+    max-height:172px;
+    max-width:92%;
+    width:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 16px 16px rgba(30,40,25,.22));
+  }
   .product-card h3{
     font-size:1.3rem;
     color:var(--green-900);
@@ -305,12 +320,21 @@
   .street-photo{
     position:relative;
     justify-self:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .street-photo::before{
+    content:"";
+    position:absolute;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(201,154,62,.22) 0%, rgba(201,154,62,0) 70%);
   }
   .street-photo img{
-    width:280px;
-    border-radius:6px 30px 6px 30px;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
-    border:6px solid var(--green-900);
+    position:relative;
+    width:230px;
+    filter:drop-shadow(0 26px 30px rgba(5,8,5,.5));
   }
 
   /* ---------- recognize us ---------- */
@@ -419,13 +443,13 @@
 
   @media (max-width: 880px){
     .nav-links{ display:none; }
-    .intro .wrap, .street .wrap, .anfahrt .wrap{ grid-template-columns:1fr; }
+    .intro .wrap, .street .wrap, .anfahrt .wrap, .hero .wrap{ grid-template-columns:1fr; }
     .street-photo{ order:-1; }
     .street-photo img{ width:220px; margin:0 auto; }
     .product-grid{ grid-template-columns:1fr; max-width:360px; margin:0 auto; }
     .signs-grid{ grid-template-columns:repeat(2, 1fr); }
     .wrap{ padding:0 22px; }
-    .hero{ padding:70px 0 90px; }
+    .hero{ padding:70px 0 60px; }
     .footer-top{ flex-direction:column; align-items:flex-start; }
   }
 </style>
@@ -482,19 +506,19 @@
     </div>
     <div class="product-grid">
       <article class="product-card">
-        <div class="product-photo"><img src="images/kaichl.jpg" alt="Frisch gebackener Kaichl mit Puderzucker"></div>
+        <div class="product-photo"><img src="images/kaichl.png" alt="Frisch gebackener Kaichl mit Puderzucker"></div>
         <h3>Kaichl</h3>
         <span class="price-tag">1,20 € / Stück</span>
         <p>Auch bekannt als Küchle, Schmalznudel oder Ausgezogene.</p>
       </article>
       <article class="product-card">
-        <div class="product-photo"><img src="images/krapfen.jpg" alt="Krapfen mit Puderzucker, gefüllt mit Marmelade"></div>
+        <div class="product-photo"><img src="images/krapfen.png" alt="Krapfen mit Puderzucker, gefüllt mit Marmelade"></div>
         <h3>Krapfen</h3>
         <span class="price-tag">1,50 € / Stück</span>
         <p>Auch bekannt als Berliner oder Pfannkuchen &ndash; gefüllt mit selbstgemachter Marmelade.</p>
       </article>
       <article class="product-card">
-        <div class="product-photo"><img src="images/party-kaichl.jpg" alt="Party Kaichl, in der Hand gehalten"></div>
+        <div class="product-photo"><img src="images/party-kaichl.png" alt="Party Kaichl, in der Hand gehalten"></div>
         <h3>Party Kaichl</h3>
         <span class="price-tag">0,90 € / Stück</span>
         <p>Die kleine Version des Kaichl &ndash; perfekt als Snack auf Feiern.</p>
@@ -515,7 +539,7 @@
       </div>
     </div>
     <div class="street-photo">
-      <img src="images/strassenaufsteller.jpg" alt="Tafel mit der Aufschrift 'Heute frische Kaichla', Kastanienweg 7">
+      <img src="images/strassenaufsteller.png" alt="Tafel mit der Aufschrift 'Heute frische Kaichla', Kastanienweg 7">
     </div>
   </div>
 </section>
