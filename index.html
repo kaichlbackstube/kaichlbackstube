@@ -174,35 +174,10 @@
     transform:rotate(-3deg);
   }
 
-  /* ---------- intro strip ---------- */
-  .intro{
-    background:var(--cream-100);
-    padding:76px 0 20px;
-  }
-  .intro .wrap{
-    display:grid;
-    grid-template-columns:1fr 1.3fr;
-    gap:60px;
-    align-items:start;
-  }
-  .intro h2{
-    font-size:clamp(1.8rem,3vw,2.4rem);
-    color:var(--green-800);
-    line-height:1.15;
-  }
-  .intro p{
-    color:#4a4433;
-    font-size:1.05rem;
-  }
-  .divider{
-    width:64px; height:3px; background:var(--gold-500);
-    border:none; margin:22px 0;
-  }
-
   /* ---------- products ---------- */
   .products{
     background:var(--cream-100);
-    padding:60px 0 110px;
+    padding:100px 0 110px;
   }
   .products-head{
     text-align:center;
@@ -255,6 +230,10 @@
     width:auto;
     object-fit:contain;
     filter:drop-shadow(0 16px 16px rgba(30,40,25,.22));
+  }
+  .product-photo--krapfen img{
+    max-height:196px;
+    max-width:104%;
   }
   .product-card h3{
     font-size:1.3rem;
@@ -435,7 +414,7 @@
 
   @media (max-width: 880px){
     .nav-links{ display:none; }
-    .intro .wrap, .street .wrap, .anfahrt .wrap, .hero .wrap{ grid-template-columns:1fr; }
+    .street .wrap, .anfahrt .wrap, .hero .wrap{ grid-template-columns:1fr; }
     .street-photo{ order:-1; }
     .street-photo img{ max-width:280px; margin:0 auto; }
     .product-grid{ grid-template-columns:1fr; max-width:360px; margin:0 auto; }
@@ -457,7 +436,7 @@
     <ul class="nav-links">
       <li><a href="#top">Start</a></li>
       <li><a href="#angebot">Angebot</a></li>
-      <li><a href="#strassenaufsteller">Straßenaufsteller</a></li>
+      <li><a href="#strassenaufsteller" style="text-transform:none">STRAßENAUFSTELLER</a></li>
       <li><a href="#anfahrt">Anfahrt</a></li>
     </ul>
     <a class="nav-phone" href="tel:+4996822069">09682 / 2069</a>
@@ -466,7 +445,7 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow hero-eyebrow">Irene Wenning's</p>
+    <p class="eyebrow hero-eyebrow">Irene Wenning&rsquo;s</p>
     <h1>Kaichl-<br>Backstube</h1>
     <p class="hero-sub">In <strong>92681 Erbendorf</strong> (Oberpfalz) werden Kaichl, Krapfen und Küchle noch von Hand ausgezogen und frisch gebacken &ndash; nach altem bayrischem Rezept.</p>
     <div class="hero-cta">
@@ -494,7 +473,7 @@
         <p>Auch bekannt als Küchle, Schmalznudel oder Ausgezogene.</p>
       </article>
       <article class="product-card">
-        <div class="product-photo"><img src="images/krapfen.png" alt="Krapfen mit Puderzucker, gefüllt mit Marmelade"></div>
+        <div class="product-photo product-photo--krapfen"><img src="images/krapfen.png" alt="Krapfen mit Puderzucker, gefüllt mit Marmelade"></div>
         <h3>Krapfen</h3>
         <span class="price-tag">1,50 € / Stück</span>
         <p>Auch bekannt als Berliner oder Pfannkuchen &ndash; gefüllt mit selbstgemachter Marmelade.</p>
@@ -512,7 +491,7 @@
 <section class="street" id="strassenaufsteller">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Straßenaufsteller</span>
+      <span class="eyebrow" style="text-transform:none">STRAßENAUFSTELLER</span>
       <h2>Kaichl abholen ohne Vorbestellung?</h2>
       <p>Wenn der Aufsteller an der Straße steht, gibt es noch frische Küchle &ndash; Restbestände, die du spontan mitnehmen kannst. Perfekt für Kaffee und Kuchen: wahlweise ohne Puderzucker oder direkt zum Naschen mit der süßen Puderzuckerschicht.</p>
       <p>Möchtest du auf Nummer sicher gehen und dich nicht auf den Zufall verlassen? Dann bestell deine Kaichla einfach vor.</p>
