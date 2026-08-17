@@ -124,6 +124,12 @@
   }
   .nav-toggle{display:none;}
 
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--green-800);
+    color:var(--cream-text);
+    padding:96px 0 110px;
+    overflow:hidden;
   }
   .hero-eyebrow{color:var(--cream-300); margin-bottom:18px;}
   .hero h1{
@@ -234,7 +240,13 @@
     display:flex;
     align-items:center;
     justify-content:center;
-
+  }
+  .product-photo::before{
+    content:"";
+    position:absolute;
+    bottom:2px;
+    width:120px; height:16px;
+    background:radial-gradient(ellipse, rgba(58,82,51,.22) 0%, rgba(58,82,51,0) 72%);
   }
   .product-photo img{
     position:relative;
@@ -273,8 +285,8 @@
   }
   .street .wrap{
     display:grid;
-    grid-template-columns:1.1fr .8fr;
-    gap:70px;
+    grid-template-columns:1fr .95fr;
+    gap:50px;
     align-items:center;
   }
   .street .eyebrow{color:var(--cream-300);}
@@ -310,17 +322,11 @@
     align-items:center;
     justify-content:center;
   }
-  .street-photo::before{
-    content:"";
-    position:absolute;
-    width:280px; height:280px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(201,154,62,.22) 0%, rgba(201,154,62,0) 70%);
-  }
   .street-photo img{
     position:relative;
-    width:230px;
-    filter:drop-shadow(0 26px 30px rgba(5,8,5,.5));
+    width:100%;
+    max-width:400px;
+    filter:drop-shadow(0 30px 34px rgba(5,8,5,.55));
   }
 
   /* ---------- recognize us ---------- */
@@ -431,7 +437,7 @@
     .nav-links{ display:none; }
     .intro .wrap, .street .wrap, .anfahrt .wrap, .hero .wrap{ grid-template-columns:1fr; }
     .street-photo{ order:-1; }
-    .street-photo img{ width:220px; margin:0 auto; }
+    .street-photo img{ max-width:280px; margin:0 auto; }
     .product-grid{ grid-template-columns:1fr; max-width:360px; margin:0 auto; }
     .signs-grid{ grid-template-columns:repeat(2, 1fr); }
     .wrap{ padding:0 22px; }
@@ -451,7 +457,7 @@
     <ul class="nav-links">
       <li><a href="#top">Start</a></li>
       <li><a href="#angebot">Angebot</a></li>
-      <li><a href="#strassenaufsteller">Strassenaufsteller</a></li>
+      <li><a href="#strassenaufsteller">Straßenaufsteller</a></li>
       <li><a href="#anfahrt">Anfahrt</a></li>
     </ul>
     <a class="nav-phone" href="tel:+4996822069">09682 / 2069</a>
@@ -460,7 +466,7 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow hero-eyebrow">Irene Wenning's</p>
+    <p class="eyebrow hero-eyebrow">Irene Wenning</p>
     <h1>Kaichl-<br>Backstube</h1>
     <p class="hero-sub">In <strong>92681 Erbendorf</strong> (Oberpfalz) werden Kaichl, Krapfen und Küchle noch von Hand ausgezogen und frisch gebacken &ndash; nach altem bayrischem Rezept.</p>
     <div class="hero-cta">
@@ -472,6 +478,16 @@
     </div>
   </div>
 </header>
+
+<section class="intro">
+  <div class="wrap">
+    <h2>Ein Stück Oberpfalz,<br>frisch aus dem Fett.</h2>
+    <div>
+      <hr class="divider">
+      <p>Die Kaichl-Backstube ist ein kleiner, familiärer Betrieb in Erbendorf. Hier entsteht, was in der Oberpfalz seit Generationen zur Brotzeit und zum Kaffee gehört: die Kaichl &ndash; anderswo auch Küchle, Schmalznudel oder Ausgezogene genannt. Jedes Stück wird von Hand ausgezogen, in der Pfanne ausgebacken und mit Puderzucker vollendet. Kein Onlineshop, kein Versand &ndash; einfach ehrliches Gebäck zum Abholen.</p>
+    </div>
+  </div>
+</section>
 
 <section class="products" id="angebot">
   <div class="wrap">
@@ -554,7 +570,7 @@
       </ul>
     </div>
     <div class="anfahrt-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 20l-6-2V6l6-2m0 16l6 2m-6-2V4m6 18l6-2V4l-6-2m0 18V2M3 6l6-2m6 2l6-2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 19c2.8-2 4.7-2 7 0s4.2 2 7 0" stroke-dasharray="0.5 3.2"/><path d="M12 2.5a5.2 5.2 0 0 1 5.2 5.2c0 3.9-5.2 10.3-5.2 10.3S6.8 11.6 6.8 7.7A5.2 5.2 0 0 1 12 2.5Z"/><circle cx="12" cy="7.7" r="1.7" fill="currentColor" stroke="none"/></svg>
       <h3>Route planen</h3>
       <p>Am schnellsten findest du uns direkt über Google Maps.</p>
       <a class="btn-gold" href="https://www.google.com/maps/search/?api=1&query=Kastanienweg%207%2C%2092681%20Erbendorf" target="_blank" rel="noopener">Zu Google Maps</a>
@@ -572,7 +588,7 @@
       <ul class="footer-links">
         <li><a href="#top">Start</a></li>
         <li><a href="#angebot">Angebot</a></li>
-        <li><a href="#straßenaufsteller">Straßenaufsteller</a></li>
+        <li><a href="#strassenaufsteller">Straßenaufsteller</a></li>
         <li><a href="#anfahrt">Anfahrt</a></li>
       </ul>
     </div>
