@@ -123,6 +123,7 @@
     color:var(--cream-text);
     padding:96px 0 110px;
     overflow:hidden;
+    position:relative;
   }
   .hero-eyebrow{color:var(--cream-300); margin-bottom:18px;}
   .hero h1{
@@ -197,12 +198,12 @@
     border-radius:6px 26px 6px 26px;
     padding:30px 26px 32px;
     text-align:center;
-    box-shadow:0 26px 50px -18px rgba(35,54,32,.38), 0 1px 0 rgba(35,54,32,.06);
+    box-shadow:0 18px 34px -22px rgba(35,54,32,.22), 0 1px 0 rgba(35,54,32,.05);
     transition:transform .25s ease, box-shadow .25s ease;
   }
   .product-card:hover{
     transform:translateY(-6px);
-    box-shadow:0 34px 60px -18px rgba(35,54,32,.46), 0 1px 0 rgba(35,54,32,.06);
+    box-shadow:0 22px 40px -22px rgba(35,54,32,.28), 0 1px 0 rgba(35,54,32,.05);
   }
   .product-photo{
     position:relative;
@@ -540,8 +541,8 @@
       <p>Abholung in 92681 Erbendorf, Oberpfalz. Für frische Kaichla ohne Vorbestellung einfach nach dem Straßenaufsteller Ausschau halten.</p>
       <ul class="info-list">
         <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-          <span>Kastanienweg 7, 92681 Erbendorf (Oberpfalz)</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17"/><path d="M8 3v3.5"/><path d="M16 3v3.5"/></svg>
+          <span>Jeden Fr, Sa und Mo (andere Tage auf Anfrage)</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0-.6.4-1 1-1h3.2c.5 0 .9.3 1 .8l1 3.6c.1.4 0 .9-.4 1.2L7.6 11c1.1 2.4 3 4.3 5.4 5.4l1.4-2.2c.3-.4.8-.5 1.2-.4l3.6 1c.5.1.8.5.8 1V19c0 .6-.4 1-1 1h-1C9.9 20 4 14.1 4 6.5V5Z"/></svg>
@@ -552,56 +553,71 @@
     <div class="anfahrt-card">
       <div class="map-embed" role="img" aria-label="Kartenausschnitt: Lage der Kaichl-Backstube in Erbendorf, nahe der Kreuzung B22/B299">
         <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="200" fill="#233020"/>
+          <defs>
+            <linearGradient id="mapBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#26331e"/>
+              <stop offset="1" stop-color="#1e2a19"/>
+            </linearGradient>
+            <radialGradient id="mapVignette" cx="50%" cy="38%" r="75%">
+              <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#000" stop-opacity=".28"/>
+            </radialGradient>
+          </defs>
 
-          <!-- Geländeflächen -->
-          <polygon points="0,38 95,32 107,60 70,80 20,79 0,68" fill="#2c3c26" opacity=".85"/>
-          <polygon points="167,55 239,52 235,90 190,98 160,80" fill="#2c3c26" opacity=".85"/>
-          <polygon points="322,0 400,0 400,92 352,88 328,45" fill="#33472c"/>
-          <polygon points="140,78 165,72 158,92 135,90" fill="#3a4c30" opacity=".9"/>
+          <rect width="400" height="200" fill="url(#mapBg)"/>
 
-          <!-- Waldgrenze gestrichelt -->
-          <path d="M322 0 C335 25, 315 55, 340 95" fill="none" stroke="#6a7a58" stroke-width="1" stroke-dasharray="2 3" opacity=".6"/>
+          <!-- Offene Flächen / Ackerland -->
+          <polygon points="0,20 92,10 122,42 100,74 32,86 0,58" fill="#eee4c8" opacity=".05"/>
+          <polygon points="168,48 248,40 258,84 210,100 158,80" fill="#eee4c8" opacity=".05"/>
 
-          <!-- St2181 / Marktredwitzer Str. -->
-          <path d="M31 10 C60 16, 85 20, 100 25 C125 33, 138 42, 145 52 C154 63, 160 72, 167 81" fill="none" stroke="#cfd6bd" stroke-width="1.4" opacity=".8"/>
-          <!-- Kemnather Str. -->
-          <path d="M167 81 C155 96, 140 108, 124 118 C107 129, 92 138, 79 148" fill="none" stroke="#cfd6bd" stroke-width="1.4" opacity=".8"/>
+          <!-- Wald -->
+          <polygon points="312,0 400,0 400,86 362,94 322,58 302,22" fill="#324430"/>
+          <polygon points="312,0 400,0 400,86 362,94 322,58 302,22" fill="none" stroke="#40563c" stroke-width=".6" opacity=".6"/>
+          <circle cx="362" cy="35" r="8" fill="#3f5539" opacity=".85"/>
 
-          <!-- Bundesstraße 22 mit Anschlussstelle -->
-          <path d="M0 134 C35 132, 55 138, 66 143 C75 147, 68 153, 79 148 C92 142, 108 148, 152 155 C190 161, 230 166, 270 172 C310 178, 355 184, 400 190" fill="none" stroke="#d4a84a" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="79" cy="148" r="10" fill="none" stroke="#d4a84a" stroke-width="1.6" opacity=".55"/>
+          <!-- Naturschutzgrenze -->
+          <path d="M296 200 C308 172, 330 152, 362 145 C380 141, 392 139, 400 137" fill="none" stroke="#c9a869" stroke-width="1" stroke-dasharray="1.5 3.5" opacity=".5"/>
+
+          <!-- Nebenstraßen: St2181 -> Marktredwitzer Str. -> Kemnather Str. -->
+          <path d="M26 6 C54 12, 78 18, 96 26 C116 35, 132 45, 145 57 C155 66, 163 75, 169 85 C158 98, 140 111, 118 122 C100 131, 87 137, 78 142" fill="none" stroke="#dfe3cd" stroke-width="1.5" stroke-linecap="round" opacity=".9"/>
+
+          <!-- Bundesstraße 22 -->
+          <path d="M0 137 C22 134, 42 138, 58 143 C74 148, 90 151, 108 149 C142 145, 195 155, 248 166 C292 175, 342 183, 400 191" fill="none" stroke="#d9ac52" stroke-width="3" stroke-linecap="round"/>
 
           <!-- Bundesstraße 299 -->
-          <path d="M195 130 C215 132, 218 134, 221 134 C270 133, 330 134, 400 136" fill="none" stroke="#d4a84a" stroke-width="3" stroke-linecap="round"/>
+          <path d="M204 126 C244 125, 320 128, 400 132" fill="none" stroke="#d9ac52" stroke-width="3" stroke-linecap="round"/>
+
+          <!-- kleine Nebenwege im Ort -->
+          <path d="M148 100 C160 96, 175 98, 186 106" fill="none" stroke="#8b9877" stroke-width="1" opacity=".55"/>
+          <path d="M170 88 C172 100, 175 112, 182 122" fill="none" stroke="#8b9877" stroke-width="1" opacity=".55"/>
 
           <!-- Straßenschilder -->
           <g font-family="Manrope, Arial, sans-serif" font-weight="700">
-            <rect x="26" y="132" width="20" height="12" rx="3" fill="#f0dfa8"/>
-            <text x="36" y="141" font-size="8" fill="#3a2c0e" text-anchor="middle">22</text>
-            <rect x="355" y="123" width="24" height="12" rx="3" fill="#f0dfa8"/>
-            <text x="367" y="132" font-size="8" fill="#3a2c0e" text-anchor="middle">299</text>
+            <rect x="16" y="119" width="20" height="12" rx="3" fill="#f0dfa8"/>
+            <text x="26" y="128" font-size="8" fill="#3a2c0e" text-anchor="middle">22</text>
+            <rect x="358" y="111" width="24" height="12" rx="3" fill="#f0dfa8"/>
+            <text x="370" y="120" font-size="8" fill="#3a2c0e" text-anchor="middle">299</text>
           </g>
 
-          <!-- Ortskern -->
-          <g fill="#5c6a4a" opacity=".9">
-            <rect x="150" y="92" width="13" height="9" rx="1"/>
-            <rect x="165" y="96" width="11" height="8" rx="1"/>
-            <rect x="140" y="102" width="15" height="9" rx="1"/>
-            <rect x="157" y="106" width="17" height="11" rx="1"/>
-            <rect x="130" y="113" width="13" height="9" rx="1"/>
-            <rect x="176" y="99" width="9" height="7" rx="1"/>
-            <rect x="185" y="112" width="14" height="10" rx="1"/>
-            <rect x="200" y="118" width="16" height="11" rx="1"/>
+          <!-- Ortskern entlang der Straße -->
+          <g fill="#63715a">
+            <rect x="150" y="88" width="12" height="9" rx="1.5"/>
+            <rect x="164" y="92" width="11" height="8" rx="1.5"/>
+            <rect x="138" y="97" width="14" height="9" rx="1.5"/>
+            <rect x="154" y="101" width="16" height="10" rx="1.5"/>
+            <rect x="126" y="108" width="13" height="9" rx="1.5"/>
+            <rect x="174" y="95" width="9" height="7" rx="1.5"/>
+            <rect x="182" y="106" width="14" height="10" rx="1.5"/>
+            <rect x="198" y="114" width="15" height="10" rx="1.5"/>
+            <rect x="110" y="118" width="12" height="9" rx="1.5"/>
+            <rect x="163" y="113" width="12" height="9" rx="1.5"/>
           </g>
-
-          <!-- Marker Taverne / Hotel -->
-          <circle cx="161" cy="107" r="2.6" fill="#e8a45c"/>
-          <circle cx="221" cy="134" r="2.6" fill="#d4577a"/>
 
           <!-- Standort Kaichl-Backstube -->
           <circle class="map-pin-ring" cx="209" cy="70" r="9"/>
           <circle cx="209" cy="70" r="4.5" fill="var(--gold-500)"/>
+
+          <rect width="400" height="200" fill="url(#mapVignette)"/>
         </svg>
       </div>
       <h3>Route planen</h3>
