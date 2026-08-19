@@ -139,6 +139,35 @@
     font-size:1.05rem;
   }
   .hero-sub strong{color:var(--cream-100);}
+  .scroll-hint{
+    position:absolute;
+    left:50%;
+    bottom:22px;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:8px;
+    color:var(--cream-300);
+    opacity:.55;
+    pointer-events:none;
+  }
+  .scroll-hint span{
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .scroll-hint svg{
+    width:14px; height:14px;
+    animation:scrollHintBounce 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollHintBounce{
+    0%, 100%{ transform:translateY(0); opacity:.6; }
+    50%{ transform:translateY(2px); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .scroll-hint svg{ animation:none; }
+  }
   .hero-cta{
     margin-top:38px;
     display:flex;
@@ -467,6 +496,11 @@
       </div>
       <span class="hero-note">frisch &amp; handgebacken</span>
     </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="M6 13l6 6 6-6"/></svg>
+    <span>Mehr entdecken</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="M6 13l6 6 6-6"/></svg>
   </div>
 </header>
 
