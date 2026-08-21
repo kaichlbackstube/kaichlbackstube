@@ -121,9 +121,24 @@
   .hero{
     background:var(--green-800);
     color:var(--cream-text);
-    padding:96px 0 110px;
+    padding:60px 0 70px;
     overflow:hidden;
     position:relative;
+  }
+  .hero-video{
+    position:absolute;
+    top:0;
+    right:0;
+    height:100%;
+    width:48%;
+    object-fit:cover;
+    object-position:center;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero .wrap{
+    position:relative;
+    z-index:1;
   }
   .hero-eyebrow{color:var(--cream-300); margin-bottom:18px;}
   .hero h1{
@@ -462,6 +477,7 @@
     .signs-grid{ grid-template-columns:repeat(2, 1fr); }
     .wrap{ padding:0 22px; }
     .hero{ padding:70px 0 60px; }
+    .hero-video{ width:100%; opacity:.25; }
     .footer-top{ flex-direction:column; align-items:flex-start; }
   }
 </style>
@@ -485,6 +501,9 @@
 </nav>
 
 <header class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="floating-faichl-header.mp4" type="video/mp4">
+  </video>
   <div class="wrap">
     <p class="eyebrow hero-eyebrow">Irene Wenning&rsquo;s</p>
     <h1>Kaichl-<br>Backstube</h1>
