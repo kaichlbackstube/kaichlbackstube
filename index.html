@@ -301,6 +301,57 @@
     margin:0;
   }
 
+  /* ---------- hinweise ---------- */
+  .info-box{
+    position:relative;
+    width:fit-content;
+    margin:-30px 0 18px auto;
+  }
+  .info-box summary{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:36px; height:36px;
+    cursor:pointer;
+    color:var(--green-700);
+    border:none;
+    border-radius:50%;
+    transition:color .2s ease, background .2s ease;
+  }
+  .info-box summary::-webkit-details-marker{display:none;}
+  .info-box summary:hover,
+  .info-box[open] summary{color:var(--gold-600); background:rgba(58,82,51,.06);}
+  .info-box summary:focus-visible{outline:2px solid var(--gold-500); outline-offset:3px;}
+  .info-box summary svg{width:18px; height:18px;}
+  .info-content{
+    position:absolute;
+    right:0;
+    top:calc(100% + 10px);
+    z-index:5;
+    width:min(340px, 86vw);
+    padding:20px 24px;
+    background:#fff;
+    border-radius:4px 16px 4px 16px;
+    box-shadow:0 18px 38px -16px rgba(35,54,32,.40), 0 0 0 1px rgba(35,54,32,.06);
+    text-align:left;
+    font-size:.88rem;
+    line-height:1.55;
+    color:#4a4433;
+  }
+  .info-content h3{
+    font-family:'Karla', sans-serif;
+    font-size:.88rem;
+    font-weight:700;
+    color:var(--green-800);
+    margin:0 0 2px;
+  }
+  .info-content p{margin:0 0 14px;}
+  .info-content p:last-child{margin-bottom:0;}
+  @media (max-width: 880px){
+    .info-box{margin-top:0;}
+  }
+
   /* ---------- straßenaufsteller ---------- */
   .street{
     background:var(--green-800);
@@ -530,6 +581,19 @@
       <h2>Zur Auswahl</h2>
       <p>Traditionelles bayrisches Gebäck, frisch &amp; von Hand gezogen.</p>
     </div>
+    <details class="info-box">
+      <summary aria-label="Hinweise zu Preisen, Allergenen und Widerruf" title="Hinweise">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg>
+      </summary>
+      <div class="info-content">
+        <h3>Preise</h3>
+        <p>Preise gemäß § 19 UStG ohne Ausweis der Umsatzsteuer.</p>
+        <h3>Allergene</h3>
+        <p>Informationen zu allergenen Zutaten liegen am Verkaufsort aus.</p>
+        <h3>Widerruf</h3>
+        <p>Frisch gebackene, schnell verderbliche Ware ist vom Widerruf ausgeschlossen.</p>
+      </div>
+    </details>
     <div class="product-grid">
       <article class="product-card">
         <div class="product-photo"><img src="images/kaichl.png" alt="Frisch gebackener Kaichl mit Puderzucker"></div>
@@ -703,6 +767,14 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var box=document.querySelector('.info-box');
+  if(!box) return;
+  document.addEventListener('click',function(e){ if(box.open && !box.contains(e.target)) box.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') box.open=false; });
+})();
+</script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
